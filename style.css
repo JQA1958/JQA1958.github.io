@@ -1,0 +1,91 @@
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Inter', sans-serif; /* Fuente Inter */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f3f4f6; /* Gris claro de fondo */
+}
+
+/* Asegura que el contenido principal crezca para empujar el footer hacia abajo */
+main {
+    flex-grow: 1;
+}
+
+/* --- Estilos del Modal --- */
+.modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    transition: transform 0.3s ease;
+}
+
+/* Clases para mostrar/ocultar modal */
+.modal-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animación de entrada/salida del contenido del modal */
+.modal-content-hidden {
+    transform: scale(0.9);
+}
+
+.modal-content-visible {
+    transform: scale(1);
+}
+
+/* --- Estilos para botones de acción en la tabla --- */
+/* Usamos @apply para reutilizar clases de Tailwind aquí si es necesario,
+   o definimos estilos directamente. */
+.action-button {
+    padding: 0.25rem; /* p-1 */
+    border-radius: 0.25rem; /* rounded */
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out; /* transition-colors duration-150 */
+    display: inline-flex; /* Para alinear el icono correctamente */
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button:hover {
+    background-color: #e5e7eb; /* hover:bg-gray-200 */
+}
+
+/* --- Estilos para el Logo QRM --- */
+.logo-qrm {
+    font-weight: bold;
+    font-size: 1.5rem; /* Ajusta tamaño según necesites */
+    letter-spacing: -1px;
+    color: #4a5568; /* Color gris oscuro */
+    flex-shrink: 0; /* Evita que el logo se encoja */
+}
+
+.logo-qrm span:nth-child(1) { color: #3b82f6; } /* Azul */
+.logo-qrm span:nth-child(2) { color: #10b981; } /* Verde */
+.logo-qrm span:nth-child(3) { color: #f59e0b; } /* Ámbar */
+
+/* --- Estilos para asegurar que los iconos Lucide se muestren --- */
+/* Es importante asegurarse de que los iconos tengan un tamaño y se muestren */
+[data-lucide] {
+     display: inline-block; /* O 'inline-flex' si necesitas alinear dentro */
+     width: 1em;             /* Usa el tamaño de fuente como base */
+     height: 1em;            /* Usa el tamaño de fuente como base */
+     vertical-align: -0.125em; /* Ajuste vertical común para iconos basados en fuentes */
+     /* stroke-width: 2; */    /* Grosor de línea opcional */
+}
+
+/* Ajustes responsivos adicionales si son necesarios */
+/* Por ejemplo, reducir el tamaño de fuente en pantallas muy pequeñas */
+@media (max-width: 640px) {
+    /* Ajustes específicos para móviles si Tailwind no es suficiente */
+    /* Ejemplo: .mi-clase { font-size: 0.875rem; } */
+    .logo-qrm {
+        font-size: 1.25rem; /* Hacer logo un poco más pequeño en móviles */
+    }
+}
